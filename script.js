@@ -1,3 +1,10 @@
+document
+  .getElementById("registrationForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    validateForm();
+  });
+
 function validateForm() {
   // Clear previous error messages
   clearErrors();
@@ -27,13 +34,9 @@ function validateForm() {
   }
 
   // Validate Phone Number
-  if (phone.length !== 10 || phone === "1234567890") {
+  if (phone.length !== 10 || phone === "123456789" || isNaN(phone)) {
     document.getElementById("phoneError").textContent =
       "Enter a valid 10-digit phone number.";
-    isValid = false;
-  } else if (isNaN(phone)) {
-    document.getElementById("phoneError").textContent =
-      "Phone number must be numeric.";
     isValid = false;
   }
 
@@ -60,4 +63,12 @@ function validateForm() {
     alert("Form submitted successfully!");
     // Optionally, you can submit the form data using AJAX here
   }
+}
+
+function clearErrors() {
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("emailError").textContent = "";
+  document.getElementById("phoneError").textContent = "";
+  document.getElementById("passwordError").textContent = "";
+  document.getElementById("confirmPasswordError").textContent = "";
 }
