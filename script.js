@@ -34,7 +34,7 @@ function validateForm() {
   }
 
   // Validate Phone Number
-  if (phone.length !== 10 || phone === "123456789" || isNaN(phone)) {
+  if (phone.length !== 10 || phone === "1234567890" || isNaN(phone)) {
     document.getElementById("phoneError").textContent =
       "Enter a valid 10-digit phone number.";
     isValid = false;
